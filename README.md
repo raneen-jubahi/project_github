@@ -26,3 +26,12 @@ This Python project allows users to explore and analyze bikeshare data from vari
 ## Example Output
 
 Here is an example output of the most popular trip data:
+
+## How to Contribute
+
+Feel free to open issues, fork the repository, and submit pull requests. If you want to add a new feature or fix a bug, please follow these steps:
+
+1. Fork the repository
+2. Create a new branch
+3. Make your changes and commit them
+4. Push your changes and create a pull request

@@ -100,7 +100,7 @@ def time_stats(df):
     print("\nCalculating The Most Frequent Times of Travel...\n")
     start_time = time.time()
 
-    # Most common month
+    # Most common month (الشهر الأكثر شيوعًا)
     most_common_month = df['month'].mode()[0]
     print(f"Most common month: {most_common_month}")
 
