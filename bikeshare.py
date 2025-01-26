@@ -26,12 +26,12 @@ def load_data(city, month, day):
 
     # تطبيق الفلترة بناءً على الشهر واليوم
     if month != 'all':
-        # تحويل اسم الشهر إلى رقمه
+        # تحويل اسم الشهر إلى رقمه باستخدام get بدلاً من if
         month_mapping = {
             'january': 1, 'february': 2, 'march': 3, 'april': 4,
             'may': 5, 'june': 6
         }
-        df = df[df['month'] == month_mapping[month]]
+        df = df[df['month'] == month_mapping.get(month, 0)]
     if day != 'all':
         df = df[df['day_of_week'] == day]
 
@@ -100,7 +100,7 @@ def time_stats(df):
     print("\nCalculating The Most Frequent Times of Travel...\n")
     start_time = time.time()
 
-    # Most common month
+    # Most common month # طباعة الشهر الأكثر شهرة
     most_common_month = df['month'].mode()[0]
     print(f"Most common month: {most_common_month}")
 
@@ -148,15 +148,15 @@ def main():
     """Main function to run the bikeshare script."""
     while True:
         city, month, day = get_filters()
-        df = load_data(city, month, day)
+        bikeshare_data = load_data(city, month, day)  # تغيير الاسم إلى bikeshare_data
 
-        if df is None:
+        if bikeshare_data is None:
             break
 
-        time_stats(df)
-        station_stats(df)
-        display_raw_data(df)
-        plot_data(df)
+        time_stats(bikeshare_data)
+        station_stats(bikeshare_data)
+        display_raw_data(bikeshare_data)
+        plot_data(bikeshare_data)
         
         restart = input("\nWould you like to restart? (yes or no): ").strip().lower()
         if restart != 'yes':
